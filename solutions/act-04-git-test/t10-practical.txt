@@ -1,0 +1,78 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir t10
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd t10
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ echo "First commit" > file1.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ git add file1.txt
+warning: in the working copy of 'Lab1/t10/file1.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ git commit -m "Base commit 1"
+[master 1a8be0a] Base commit 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/t10/file1.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ echo "Second commit" > file2.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ git add file2.txt 
+warning: in the working copy of 'Lab1/t10/file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ git commit -m "Base commit 2"
+[master 0a01b6b] Base commit 2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/t10/file2.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (master)
+$ git checkout -b additional-branch
+Switched to a new branch 'additional-branch'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (additional-branch)
+$ echo "additional commit" > additional.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (additional-branch)
+$ git add additional.txt 
+warning: in the working copy of 'Lab1/t10/additional.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (additional-branch)
+$ git commit -m "Additional commit 1"
+[additional-branch 7105918] Additional commit 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/t10/additional.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (additional-branch)
+$ echo "Unstaged file" >> file1.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (additional-branch)
+$ git status -s
+ M file1.txt
+?? ../t5/
+?? ../../a
+?? ../../solutions/
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t10 (additional-branch)
+$ git log --oneline --decorate --graph --all
+* 7105918 (HEAD -> additional-branch) Additional commit 1
+* 0a01b6b (master) Base commit 2
+* 1a8be0a Base commit 1
+* a847a28 (tag: v1.4) Commit on topic branch
+* 9fbd6e5 Commit on master
+* 4481202 base commit
+* 4a41366 (origin/master) Init commit
+*   500b94f Merge topic branch into master
+|\
+| * a40e309 (topic-branch) Commit on topic branch
+* | 258cc10 Commit on master branch
+|/
+* e9361e5 example file for start
+| * 6d3c342 (second-branch) Commit on second branch
+|/
+* e68e9e5 Commit on master branch
+* 7ccde9b Corrected message

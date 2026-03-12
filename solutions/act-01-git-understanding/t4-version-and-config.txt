@@ -1,0 +1,24 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks> git --version
+git version 2.45.2.windows.1
+PS D:\Предмети\Semestar 6\КИИ\Homeworks> git config --global user.name
+spasovskibojan
+PS D:\Предмети\Semestar 6\КИИ\Homeworks> git config --global user.email
+bojanspasovski04@gmail.com
+PS D:\Предмети\Semestar 6\КИИ\Homeworks> git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/etc/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=bojanspasovski04@gmail.com
+user.name=spasovskibojan
+credential.https://huggingface.co.provider=generic

@@ -1,0 +1,111 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir h3
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd h3
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ echo "base text" > base.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git add base.txt 
+warning: in the working copy of 'Lab1/h3/base.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git commit -m "base commit"
+[master 4481202] base commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/h3/base.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git checkout -b topic-rebase
+Switched to a new branch 'topic-rebase'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ echo "Topic changes" > topic.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git add topic.txt 
+warning: in the working copy of 'Lab1/h3/topic.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git commit -m "Commit on topic branch"
+[topic-rebase 2d5275f] Commit on topic branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/h3/topic.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git branch
+  master
+  second-branch
+  topic-branch
+* topic-rebase
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ echo "Master changes" > master.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git add master.txt 
+warning: in the working copy of 'Lab1/h3/master.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git commit -m "Commit on master"
+[master 9fbd6e5] Commit on master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/h3/master.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git log --oneline --decorate --graph --all
+* 9fbd6e5 (HEAD -> master) Commit on master
+| * 2d5275f (topic-rebase) Commit on topic branch
+|/  
+* 4481202 base commit
+* 4a41366 (origin/master) Init commit
+*   500b94f Merge topic branch into master
+|\  
+| * a40e309 (topic-branch) Commit on topic branch
+* | 258cc10 Commit on master branch
+|/  
+* e9361e5 example file for start
+| * 6d3c342 (second-branch) Commit on second branch
+|/  
+* e68e9e5 Commit on master branch
+* 7ccde9b Corrected message
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (master)
+$ git checkout topic-rebase
+Switched to branch 'topic-rebase'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git rebase master
+Successfully rebased and updated refs/heads/topic-rebase.
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git branch
+  master
+  second-branch
+  topic-branch
+* topic-rebase
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h3 (topic-rebase)
+$ git log --oneline --decorate --graph --all
+* a847a28 (HEAD -> topic-rebase) Commit on topic branch
+* 9fbd6e5 (master) Commit on master
+* 4481202 base commit
+* 4a41366 (origin/master) Init commit
+*   500b94f Merge topic branch into master
+|\
+| * a40e309 (topic-branch) Commit on topic branch
+* | 258cc10 Commit on master branch
+|/
+* e9361e5 example file for start
+| * 6d3c342 (second-branch) Commit on second branch
+|/
+* e68e9e5 Commit on master branch
+* 7ccde9b Corrected message

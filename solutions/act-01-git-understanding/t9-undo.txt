@@ -1,0 +1,43 @@
+1.
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir t9
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd t9
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ touch file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ git add file.txt 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ git commit -m "Wrong message"
+[master (root-commit) 7ad0570] Wrong message
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Lab1/t9/file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ git commit --amend -m "Corrected message"
+[master 7ccde9b] Corrected message
+ Date: Thu Mar 5 10:56:17 2026 +0100
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Lab1/t9/file.txt
+
+2.
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ echo "some changes" >> file.txt 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ git add file.txt 
+warning: in the working copy of 'Lab1/t9/file.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ git restore --staged file.txt 
+
+3.
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ echo "fault" >> file.txt 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t9 (master)
+$ git restore file.txt 

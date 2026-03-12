@@ -1,0 +1,30 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (topic-rebase)
+$ mkdir h5
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (topic-rebase)
+$ cd h5
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h5 (topic-rebase)
+$ git tag -a v1.4 -m "my version 1.4"
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h5 (topic-rebase)
+$ git show v1.4
+tag v1.4
+Tagger: spasovskibojan <bojanspasovski04@gmail.com>
+Date:   Thu Mar 5 11:55:16 2026 +0100
+
+my version 1.4
+
+commit a847a28406015527e41970b55e9a4cecadd42e1c (HEAD -> topic-rebase, tag: v1.4)
+Author: spasovskibojan <bojanspasovski04@gmail.com>
+Date:   Thu Mar 5 11:46:16 2026 +0100
+
+    Commit on topic branch
+
+diff --git a/Lab1/h3/topic.txt b/Lab1/h3/topic.txt
+new file mode 100644
+index 0000000..b80540d
+--- /dev/null
++++ b/Lab1/h3/topic.txt
+@@ -0,0 +1 @@
++Topic changes

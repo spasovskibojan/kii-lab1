@@ -1,0 +1,83 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir l3
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd l3
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git branch
+* master
+  second-branch
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ echo "example file" > example.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git add example.txt 
+warning: in the working copy of 'Lab1/l3/example.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git commit -m "example file for start"
+[master e9361e5] example file for start
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l3/example.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git checkout -b topic-branch
+Switched to a new branch 'topic-branch'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (topic-branch)
+$ echo "topic change" > topic.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (topic-branch)
+$ git add topic.txt 
+warning: in the working copy of 'Lab1/l3/topic.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (topic-branch)
+$ git commit -m "Commit on topic branch"
+[topic-branch a40e309] Commit on topic branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l3/topic.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (topic-branch)
+$ git checkout master
+Switched to branch 'master'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ echo "master change" > master.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git add master.txt 
+warning: in the working copy of 'Lab1/l3/master.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git commit -m "Commit on master branch"
+[master 258cc10] Commit on master branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l3/master.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git branch
+* master
+  second-branch
+  topic-branch
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git merge topic-branch -m "Merge topic branch into master"
+Merge made by the 'ort' strategy.
+ Lab1/l3/topic.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l3/topic.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l3 (master)
+$ git log --oneline --decorate --graph --all
+*   500b94f (HEAD -> master) Merge topic branch into master
+|\
+| * a40e309 (topic-branch) Commit on topic branch
+* | 258cc10 Commit on master branch
+|/
+* e9361e5 example file for start
+| * 6d3c342 (second-branch) Commit on second branch
+|/
+* e68e9e5 Commit on master branch
+* 7ccde9b Corrected message

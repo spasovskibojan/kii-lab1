@@ -1,0 +1,42 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir l5
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd l5
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ echo "test" > file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ git add file.txt 
+warning: in the working copy of 'Lab1/l5/file.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ git commit -m "Init commit"
+[master 4a41366] Init commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l5/file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ git remote -v
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ git remote add origin https://github.com/spasovskibojan/kii-lab1.git
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ git remote -v
+origin  https://github.com/spasovskibojan/kii-lab1.git (fetch)
+origin  https://github.com/spasovskibojan/kii-lab1.git (push)
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l5 (master)
+$ git push -u origin master
+Enumerating objects: 34, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (34/34), 2.36 KiB | 1.18 MiB/s, done.
+Total 34 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/spasovskibojan/kii-lab1.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.

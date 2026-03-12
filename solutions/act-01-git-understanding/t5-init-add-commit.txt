@@ -1,0 +1,47 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks (master)
+$ mkdir Lab1
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks (master)
+$ cd Lab1/
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir t5
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd t5
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ git init
+Initialized empty Git repository in D:/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5/.git/
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ touch README.md
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ git add README.md 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ git status -s
+A  README.md
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ git commit -m "Initial commit"
+[master (root-commit) 189121f] Initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/t5 (master)
+$ git log --oneline
+189121f (HEAD -> master) Initial commit

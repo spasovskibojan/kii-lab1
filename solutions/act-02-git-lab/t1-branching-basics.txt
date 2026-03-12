@@ -1,0 +1,48 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ mkdir l1
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (master)
+$ cd l1
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (master)
+$ echo "File for master" > master-file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (master)
+$ git add master-file.txt 
+warning: in the working copy of 'Lab1/l1/master-file.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (master)
+$ git commit -m "Commit on master branch"
+[master e68e9e5] Commit on master branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l1/master-file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (master)
+$ git branch
+* master
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (master)
+$ git checkout -b second-branch
+Switched to a new branch 'second-branch'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (second-branch)
+$ echo "File for second branch" > second-file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (second-branch)
+$ git add second-file.txt 
+warning: in the working copy of 'Lab1/l1/second-file.txt', LF will be replaced by CRLF the next time Git touches it
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (second-branch)
+$ git commit -m "Commit on second branch"
+[second-branch 6d3c342] Commit on second branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Lab1/l1/second-file.txt
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (second-branch)
+$ git checkout master
+Switched to branch 'master'
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/l1 (master)
+$ git branch
+* master
+  second-branch

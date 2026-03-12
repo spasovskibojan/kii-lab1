@@ -1,0 +1,27 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (topic-rebase)
+$ mkdir h7
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1 (topic-rebase)
+$ cd h7
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h7 (topic-rebase)
+$ git config --global alias.unstage "restore --staged"
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h7 (topic-rebase)
+$ git config --global alias.last "log -1 HEAD"
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h7 (topic-rebase)
+$ git config alias.unstage
+restore --staged
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h7 (topic-rebase)
+$ git config alias.last
+log -1 HEAD
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab1/h7 (topic-rebase)
+$ git last
+commit a847a28406015527e41970b55e9a4cecadd42e1c (HEAD -> topic-rebase, tag: v1.4)
+Author: spasovskibojan <bojanspasovski04@gmail.com>
+Date:   Thu Mar 5 11:46:16 2026 +0100
+
+    Commit on topic branch
