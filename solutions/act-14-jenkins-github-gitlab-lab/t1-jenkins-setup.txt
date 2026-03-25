@@ -1,0 +1,135 @@
+I have created dockerfile with this inside:
+FROM jenkins/jenkins:2.440.2-jdk17
+USER root
+RUN apt-get update && apt-get install -y lsb-release
+RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+  https://download.docker.com/linux/debian/gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+RUN apt-get update && apt-get install -y docker-ce-cli
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
+
+Then created docker-compose.yml with this content:
+version: '3.1'
+services:
+  docker:
+    image: docker:dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+    volumes:
+      - ./jenkins-docker-certs:/certs/client
+      - ./jenkins-data:/var/jenkins_home
+  jenkins-blueocean:
+    build: .
+    environment:
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_TLS_VERIFY: 1
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins-data:/var/jenkins_home
+      - ./jenkins-docker-certs:/certs/client:ro
+networks:
+  default:
+    name: jenkins
+    driver: bridge
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab4 (master)
+$ docker compose up -d --build
+time="2026-03-25T23:18:46+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab4\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+[+] Building 184.6s (11/11) FINISHED                                                                                                     docker:desktop-linux
+ => [jenkins-blueocean internal] load build definition from Dockerfile                                                                                   0.0s
+ => => transferring dockerfile: 609B                                                                                                                     0.0s 
+ => [jenkins-blueocean internal] load metadata for docker.io/jenkins/jenkins:lts-jdk17                                                                   3.0s 
+ => [jenkins-blueocean internal] load .dockerignore                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                                          0.0s 
+ => [jenkins-blueocean 1/6] FROM docker.io/jenkins/jenkins:lts-jdk17@sha256:cce1eeb79902722f3cf7a8831c41e95c39f4a42b9a2981959630cc66539b3c2d            90.1s 
+ => => resolve docker.io/jenkins/jenkins:lts-jdk17@sha256:cce1eeb79902722f3cf7a8831c41e95c39f4a42b9a2981959630cc66539b3c2d                               0.0s 
+ => => sha256:0b9e958129f491a791906f3489da0ef6d73fe8ecd6ab244ea86efb9457c2d54c 390B / 390B                                                               0.2s
+ => => sha256:76eac8d3a597602036983ad5cada2c3613afad9dc2fa490e84a947a144c403f6 1.29kB / 1.29kB                                                           0.3s
+ => => sha256:46f93bf1cb2f067a8ec6d24c4b031184bd91f301ead522c1b3f794bfdd80695d 2.23kB / 2.23kB                                                           0.5s 
+ => => sha256:f44eb945cec15a8e99f05c57ab9eb0409727b58a87a5034ac8bb3b68eb1e8a5f 96.12MB / 96.12MB                                                        89.0s 
+ => => sha256:503dee4523cf2a85871da0a64cab0e94ce91aa6793ece0cda497c41881870f2d 63.45MB / 63.45MB                                                        83.7s
+ => => sha256:b7b154fd69a136b640d89d7c156048a48fe4124b7638ed13107df72b132fabb3 6.29MB / 6.29MB                                                           5.3s
+ => => sha256:01938f7c040b559dfd1d16346f9bbd40a305e214e2e16728dcf3ac75845c020f 187B / 187B                                                               0.9s
+ => => sha256:6327a7366a6fa4c5c57a9a04274db866841098e717655c7e56d4f67e3cc915a0 184B / 184B                                                               0.2s
+ => => sha256:6da7907f70f4c563d02439f2a3a5b3f951e74cfa0ac6633e39e945ec0f10b2ef 1.23kB / 1.23kB                                                           0.6s
+ => => sha256:69503609dc016576a481fcb3d3a9113b0a266becbab919ba239c3a929a9a39ac 5.24MB / 5.24MB                                                          15.6s
+ => => sha256:4d2125ccf71c16701fc6961afb46ecd20e7a612e4f9225c668f8fbbf407daef7 59.45MB / 59.45MB                                                        63.6s
+ => => sha256:53c88f1dfeb79b2f207f7f1a03a45e0dc5ed208b9f496de16b98f81189dc0392 49.29MB / 49.29MB                                                        60.1s
+ => => extracting sha256:53c88f1dfeb79b2f207f7f1a03a45e0dc5ed208b9f496de16b98f81189dc0392                                                                2.9s
+ => => extracting sha256:4d2125ccf71c16701fc6961afb46ecd20e7a612e4f9225c668f8fbbf407daef7                                                                4.1s
+ => => extracting sha256:69503609dc016576a481fcb3d3a9113b0a266becbab919ba239c3a929a9a39ac                                                                0.2s
+ => => extracting sha256:6da7907f70f4c563d02439f2a3a5b3f951e74cfa0ac6633e39e945ec0f10b2ef                                                                0.0s
+ => => extracting sha256:6327a7366a6fa4c5c57a9a04274db866841098e717655c7e56d4f67e3cc915a0                                                                0.0s 
+ => => extracting sha256:01938f7c040b559dfd1d16346f9bbd40a305e214e2e16728dcf3ac75845c020f                                                                0.0s 
+ => => extracting sha256:b7b154fd69a136b640d89d7c156048a48fe4124b7638ed13107df72b132fabb3                                                                0.1s
+ => => extracting sha256:503dee4523cf2a85871da0a64cab0e94ce91aa6793ece0cda497c41881870f2d                                                                1.3s
+ => => extracting sha256:f44eb945cec15a8e99f05c57ab9eb0409727b58a87a5034ac8bb3b68eb1e8a5f                                                                0.5s
+ => => extracting sha256:46f93bf1cb2f067a8ec6d24c4b031184bd91f301ead522c1b3f794bfdd80695d                                                                0.0s 
+ => => extracting sha256:76eac8d3a597602036983ad5cada2c3613afad9dc2fa490e84a947a144c403f6                                                                0.0s 
+ => => extracting sha256:0b9e958129f491a791906f3489da0ef6d73fe8ecd6ab244ea86efb9457c2d54c                                                                0.0s 
+ => [jenkins-blueocean 2/6] RUN apt-get update && apt-get install -y lsb-release                                                                        12.6s 
+ => [jenkins-blueocean 3/6] RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc   https://download.docker.com/linux/debian/gpg                0.6s 
+ => [jenkins-blueocean 4/6] RUN echo "deb [arch=$(dpkg --print-architecture)   signed-by=/usr/share/keyrings/docker-archive-keyring.asc]   https://down  0.7s 
+ => [jenkins-blueocean 5/6] RUN apt-get update && apt-get install -y docker-ce-cli                                                                      18.8s 
+ => [jenkins-blueocean 6/6] RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"                                                                44.9s 
+ => [jenkins-blueocean] exporting to image                                                                                                              13.4s 
+ => => exporting layers                                                                                                                                 11.1s 
+ => => exporting manifest sha256:0464bcf3e0879ea75e5da9857001e3c33e743c0907a7b34c5fe6ff3aeab9487e                                                        0.0s 
+ => => exporting config sha256:ed871d96d25187a04cedd9814907cfa01a1ecebfde837902623408e922e59505                                                          0.0s 
+ => => exporting attestation manifest sha256:83df0d845412db46cd45081130d52fbb00fc2c1e08f784fc73b1d8390b060ee7                                            0.0s 
+ => => exporting manifest list sha256:1310946c33423928a9919f21e4d5e6b445d003156754459669444ccc39ff177d                                                   0.0s 
+ => => naming to docker.io/library/lab4-jenkins-blueocean:latest                                                                                         0.0s 
+ => => unpacking to docker.io/library/lab4-jenkins-blueocean:latest                                                                                      2.2s 
+ => [jenkins-blueocean] resolving provenance for metadata file                                                                                           0.0s 
+[+] Running 4/4
+ ✔ jenkins-blueocean                   Built                                                                                                             0.0s 
+ ✔ Network jenkins                     Created                                                                                                           0.1s 
+ ✔ Container lab4-docker-1             Started                                                                                                           2.0s 
+ ✔ Container lab4-jenkins-blueocean-1  Started  
+
+ MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab4 (master)
+$ docker compose ps
+time="2026-03-25T23:46:51+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab4\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME                       IMAGE                    COMMAND                  SERVICE             CREATED          STATUS          PORTS
+lab4-docker-1              docker:dind              "dockerd-entrypoint.…"   docker              24 minutes ago   Up 24 minutes   2375-2376/tcp
+lab4-jenkins-blueocean-1   lab4-jenkins-blueocean   "/usr/bin/tini -- /u…"   jenkins-blueocean   24 minutes ago   Up 24 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp
+
+$ docker compose logs
+time="2026-03-25T23:47:18+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab4\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+docker-1  | Certificate request self-signature ok
+docker-1  | subject=CN=docker:dind server
+...
+jenkins-blueocean-1  | [LF]>
+jenkins-blueocean-1  | [LF]> *************************************************************
+jenkins-blueocean-1  | [LF]> *************************************************************
+jenkins-blueocean-1  | [LF]> *************************************************************
+jenkins-blueocean-1  | [LF]>
+jenkins-blueocean-1  | [LF]> Jenkins initial setup is required. An admin user has been created and a password generated.
+jenkins-blueocean-1  | [LF]> Please use the following password to proceed to installation:
+jenkins-blueocean-1  | [LF]>
+jenkins-blueocean-1  | [LF]> cb89ebd277a34eed84c0ac8b7c06d96c
+jenkins-blueocean-1  | [LF]>
+jenkins-blueocean-1  | [LF]> This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+jenkins-blueocean-1  | [LF]>
+jenkins-blueocean-1  | [LF]> *************************************************************
+jenkins-blueocean-1  | [LF]> *************************************************************
+jenkins-blueocean-1  | [LF]> *************************************************************
+
+4. Configured Jenkins URL: http://localhost:8080/
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab4 (master)
+$ docker compose ps
+time="2026-03-25T23:48:18+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab4\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME                       IMAGE                    COMMAND                  SERVICE             CREATED          STATUS          PORTS
+lab4-docker-1              docker:dind              "dockerd-entrypoint.…"   docker              26 minutes ago   Up 26 minutes   2375-2376/tcp
+lab4-jenkins-blueocean-1   lab4-jenkins-blueocean   "/usr/bin/tini -- /u…"   jenkins-blueocean   26 minutes ago   Up 26 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp
