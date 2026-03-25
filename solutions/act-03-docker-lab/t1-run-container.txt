@@ -1,0 +1,27 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker pull ubuntu:22.04
+22.04: Pulling from library/ubuntu
+b1cba2e842ca: Pull complete
+Digest: sha256:3ba65aa20f86a0fad9df2b2c259c613df006b2e6d0bfcc8a146afb8c525a9751
+Status: Downloaded newer image for ubuntu:22.04
+docker.io/library/ubuntu:22.04
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker run -it ubuntu:22.04 /bin/bash
+root@1ba7384f24ef:/# ls /
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@1ba7384f24ef:/# exit
+exit
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker ps -a
+CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS                        PORTS                    NAMES
+1ba7384f24ef   ubuntu:22.04                "/bin/bash"              About a minute ago   Exited (0) 2 seconds ago                               agitated_mclaren
+cf9d590c6490   ubuntu                      "/bin/bash"              19 minutes ago       Exited (127) 19 minutes ago                            relaxed_booth
+dd0914ebce8b   ubuntu                      "/bin/bash"              21 minutes ago       Exited (0) 20 minutes ago                              determined_black
+50656b767dd9   ubuntu                      "//bin/bash"             22 minutes ago       Exited (0) 14 minutes ago                              eager_elgamal
+289fbfdb17a1   ubuntu                      "bash"                   22 minutes ago       Exited (127) 22 minutes ago                            peaceful_panini
+6142c90070ed   ubuntu                      "C:/Program Files/Gi…"   26 minutes ago       Created                                                zealous_sammet
+7619baea5e78   cryptoanalysis-web          "sh -c 'python tech_…"   5 weeks ago          Exited (137) 5 weeks ago                               cryptoanalysis-web-1
+c42e99f0ab10   cryptoanalysis-ta-service   "uvicorn main:app --…"   5 weeks ago          Exited (0) 5 weeks ago                                 cryptoanalysis-ta-service-1
+7d351bb500ae   cryptoanalysis-fa-service   "uvicorn main:app --…"   5 weeks ago          Exited (0) 5 weeks ago                                 cryptoanalysis-fa-service-1
+818f6c005c72   4-web                       "sh -c 'python tech_…"   2 months ago         Exited (137) 2 months ago                              4-web-1
+a44a02122891   4-fa-service                "uvicorn main:app --…"   2 months ago         Exited (255) 5 weeks ago      0.0.0.0:8002->8002/tcp   4-fa-service-1
+dc5f86e2f656   4-ta-service                "uvicorn main:app --…"   2 months ago         Exited (255) 5 weeks ago      0.0.0.0:8001->8001/tcp   4-ta-service-1
+6a44fbbf9e34   postgres:15-alpine          "docker-entrypoint.s…"   3 months ago         Exited (0) 2 months ago                                lab1wp_postgres

@@ -1,0 +1,72 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework> mkdir docker-logs-homework
+
+
+    Directory: D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         12.3.2026     11:58                docker-logs-homework
+
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework> cd .\docker-logs-homework\
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\docker-logs-homework> Set-Content -Path Dockerfile -Value "FROM alpine`nCMD sh -c 'while true; do echo `"Docker log entry $(date)`"; sleep 2; done'" -Encoding utf8
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\docker-logs-homework> docker build -t docker-log-generator:v1 .
+[+] Building 2.1s (6/6) FINISHED                                                                    docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                0.0s
+ => => transferring dockerfile: 139B                                                                                0.0s
+ => [internal] load metadata for docker.io/library/alpine:latest                                                    1.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                       0.0s
+ => [internal] load .dockerignore                                                                                   0.0s
+ => => transferring context: 2B                                                                                     0.0s
+ => [1/1] FROM docker.io/library/alpine:latest@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3  0.0s
+ => => resolve docker.io/library/alpine:latest@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3  0.0s
+ => exporting to image                                                                                              0.1s
+ => => exporting layers                                                                                             0.0s
+ => => exporting manifest sha256:f7cf53f5183524248f02e1ef710642febcb0de844bc31105480c183371a55f09                   0.0s
+ => => exporting config sha256:f10373130fb38a467d47a2a8825e2fefe5591dcf5df0bbe355db55ccc2b60e90                     0.0s
+ => => exporting attestation manifest sha256:6a7b4c0e3753fc0846e57db98a672f08c1293ebfdcd175c782e7e897eec3425f       0.0s
+ => => exporting manifest list sha256:06448e510a154098c852303383fe511dc5a05584998aba9b6b403b7e3ffbc78a              0.0s 
+ => => naming to docker.io/library/docker-log-generator:v1                                                          0.0s 
+ => => unpacking to docker.io/library/docker-log-generator:v1                                                       0.0s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/p38b7v7pkg0k6rq9rq4e2jdsg
+
+ 1 warning found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 2) 
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\docker-logs-homework> docker run -d docker-log-generator:v1
+53bff4fdbcc193320ee93ca08c077e82827fca262b683a28fa8e6f5d15d16d49
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\docker-logs-homework> docker logs 53bff4fdbcc193320ee93ca08c077e82827fca262b683a28fa8e6f5d15d16d49
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\docker-logs-homework> docker logs 53bff4fdbcc193320ee93ca08c077e82827fca262b683a28fa8e6f5d15d16d49
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+Docker log entry 03/12/2026 11:58:40
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\docker-logs-homework> docker stop 53bff4fdbcc193320ee93ca08c077e82827fca262b683a28fa8e6f5d15d16d49
+53bff4fdbcc193320ee93ca08c077e82827fca262b683a28fa8e6f5d15d16d49

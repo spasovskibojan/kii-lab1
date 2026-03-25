@@ -1,0 +1,37 @@
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$ docker compose up -d
+[+] Running 2/2
+ ✔ Container compose-homework-app-web-1    Started                                                                                                              0.2s 
+ ✔ Container compose-homework-app-redis-1  Running                                                                                                              0.0s 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$  docker compose stop 
+[+] Stopping 2/2
+ ✔ Container compose-homework-app-web-1    Stopped                                                                                                              0.0s 
+ ✔ Container compose-homework-app-redis-1  Stopped                                                                                                              0.4s 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$ docker compose ps
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$ docker compose up -d
+[+] Running 2/2
+ ✔ Container compose-homework-app-redis-1  Started                                                                                                              0.2s 
+ ✔ Container compose-homework-app-web-1    Started                                                                                                              0.3s 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$ docker compose down
+[+] Running 3/3
+ ✔ Container compose-homework-app-redis-1  Removed                                                                                                              0.4s 
+ ✔ Container compose-homework-app-web-1    Removed                                                                                                              0.0s 
+ ✔ Network compose-homework-app_default    Removed                                                                                                              0.7s 
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$  docker compose ps 
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+
+
+Explanation of Lifecycle Differences:
+1. After 'docker compose stop': The container processes are halted, but the actual container instances (with their file systems) and the project network REMAIN on the host machine.
+2. After 'docker compose down': Everything is REMOVED. The container instances are permanently deleted, and the project network is destroyed, returning the environment to a clean state." > @solutions/act-11-docker-compose-homework/t2-stop-vs-down.txt

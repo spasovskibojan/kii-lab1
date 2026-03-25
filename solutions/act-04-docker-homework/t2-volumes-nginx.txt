@@ -1,0 +1,70 @@
+ D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework> mkdir nginx-volume-test
+
+
+    Directory: D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         12.3.2026     11:48                nginx-volume-test
+
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework> cd .\nginx-volume-test\
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\nginx-volume-test> echo "<h1>Hello from Volume Page</h1>" > index.html
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab2/docker-python-homework/nginx-volume-test (additional-branch)
+$ MSYS_NO_PATHCONV=1 docker run -d -p 8085:80 -v "$(pwd)/index.html:/usr/share/nginx/html/index.html" nginx:alpine
+Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+Digest: sha256:f46cb72c7df02710e693e863a983ac42f6a9579058a59a35f1ae36c9958e4ce0
+Status: Downloaded newer image for nginx:alpine
+4ba6aedb62d75b5f778b10d34e874934def861c2a1e8ce32820e9e75d3c2dbc0
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\nginx-volume-test> curl http://localhost:8085
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <h1>Hello from Volume Page</h1>
+
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Accept-Ranges: bytes
+                    Content-Length: 68
+                    Content-Type: text/html
+                    Date: Thu, 12 Mar 2026 10:52:26 GMT
+                    ETag: "69b29a12-44"
+                    Last-Modified: Thu, 12 Mar 2026 10...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Accept-Ranges, bytes], [Content-Length, 68], [Content-Type, text/html].. 
+                    .}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 68
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\nginx-volume-test> Set-Content -Path index.html -Value "<h1>Updated Volume Page</h1>" -Encoding utf8
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework\nginx-volume-test> curl http://localhost:8085
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <h1>Updated Volume Page</h1>
+
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Accept-Ranges: bytes
+                    Content-Length: 33
+                    Content-Type: text/html
+                    Date: Thu, 12 Mar 2026 10:53:00 GMT
+                    ETag: "69b29b04-21"
+                    Last-Modified: Thu, 12 Mar 2026 10...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Accept-Ranges, bytes], [Content-Length, 33], [Content-Type, text/html].. 
+                    .}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 33

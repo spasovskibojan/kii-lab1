@@ -1,0 +1,15 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker run --name myubuntu -it ubuntu:22.04 /bin/bash
+root@aa8ae58238df:/# exit
+exit
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker start myubuntu
+myubuntu
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker attach myubuntu
+root@aa8ae58238df:/# exit
+exit
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker stop myubuntu
+myubuntu
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker logs myubuntu
+root@aa8ae58238df:/# exit
+exit
+root@aa8ae58238df:/# exit
+exit

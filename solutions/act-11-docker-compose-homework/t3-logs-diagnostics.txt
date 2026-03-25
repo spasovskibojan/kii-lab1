@@ -1,0 +1,32 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3\compose-homework-app> docker compose up -d
+[+] Running 2/2
+ ✔ Container compose-homework-app-redis-1  Running                                                                                                   0.0s 
+ ✔ Container compose-homework-app-web-1    Started                                                                                                   0.3s 
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3\compose-homework-app> docker compose logs
+redis-1  | 1:C 17 Mar 2026 13:29:58.768 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-1  | 1:M 17 Mar 2026 13:29:58.772 * Ready to accept connections tcp
+web-1    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+web-1    |  * Restarting with stat
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3\compose-homework-app> docker compose logs -f
+redis-1  | 1:C 17 Mar 2026 13:29:58.768 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-1  | 1:M 17 Mar 2026 13:29:58.772 * Ready to accept connections tcp
+web-1    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+web-1    |  * Restarting with stat
+^C
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3\compose-homework-app> docker compose logs web
+web-1    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+web-1    |  * Restarting with stat
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3\compose-homework-app> docker compose logs redis
+redis-1  | Starting Redis Server
+redis-1  | 1:C 17 Mar 2026 13:29:58.768 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-1  | 1:M 17 Mar 2026 13:29:58.772 * Ready to accept connections tcp
+redis-1  | 1:M 17 Mar 2026 13:29:58.772 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+
+---
+Log Diagnostics Explanation:
+* Aggregated Logs (docker compose logs): Better for understanding the overall health of the application and seeing the chronological sequence of events and interactions between different containers (e.g., seeing the web service connect to the database right after the database starts).
+* Single-Service Logs (docker compose logs [service_name]): Better for targeted debugging when you know a specific component is failing (like tracing a Python error in the web app) without being distracted by the logs from healthy services.

@@ -1,0 +1,75 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> mkdir docker-lab
+
+
+    Directory: D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         12.3.2026     11:34                docker-lab
+
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> cd .\docker-lab\
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-lab> Set-Content -Path Dockerfile -Value "FROM nginx:alpine`nRUN echo `"Hello from Docker Lab`" > /usr/share/nginx/html/index.html`nEXPOSE 80" -Encoding utf8
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-lab> docker build -t docker-lab-nginx:v1 .
+[+] Building 9.0s (7/7) FINISHED                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                 0.0s
+ => => transferring dockerfile: 137B                                                                 0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                      1.9s 
+ => [auth] library/nginx:pull token for registry-1.docker.io                                         0.0s
+ => [internal] load .dockerignore                                                                    0.0s
+ => => transferring context: 2B                                                                      0.0s 
+ => [1/2] FROM docker.io/library/nginx:alpine@sha256:f46cb72c7df02710e693e863a983ac42f6a9579058a59a  6.4s 
+ => => resolve docker.io/library/nginx:alpine@sha256:f46cb72c7df02710e693e863a983ac42f6a9579058a59a  0.0s 
+ => => sha256:c24026275c332ec39b54c7094c7ce6d97b0dde17bb91e53b4b2d7dd88da7d8f0 20.25MB / 20.25MB     4.4s
+ => => sha256:c32126d2b96c212b17a4fa8384c2aaf3e3418d4b2988c303df255de884a2a73a 1.40kB / 1.40kB       0.5s
+ => => sha256:1f25242adbdb4bf04c16ac9fbe5385a46cf0f1fbee7d8e7945ef342b794d1bf1 1.21kB / 1.21kB       0.7s 
+ => => sha256:1549d7aec9620db68aa7a5ea05aa08590d8f46598bb4b4e0e356753b44c694d4 403B / 403B           0.6s 
+ => => sha256:e19aff8f2cce9241a3cbb1f501d16d9d76b7f22e7b544f4e373d8b22496bfcaf 952B / 952B           0.3s
+ => => sha256:593488f95c358628770935110ccf26bd7b3aba382b10126980e630a6dd2757fc 626B / 626B           0.3s
+ => => sha256:d2a46166eee6d30856269bbf4ad826481d04dd4108aca73e3e974fab7fdb6dad 1.87MB / 1.87MB       2.0s 
+ => => sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 3.86MB / 3.86MB       4.9s
+ => => extracting sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153            0.1s
+ => => extracting sha256:d2a46166eee6d30856269bbf4ad826481d04dd4108aca73e3e974fab7fdb6dad            0.1s
+ => => extracting sha256:593488f95c358628770935110ccf26bd7b3aba382b10126980e630a6dd2757fc            0.0s
+ => => extracting sha256:e19aff8f2cce9241a3cbb1f501d16d9d76b7f22e7b544f4e373d8b22496bfcaf            0.0s 
+ => => extracting sha256:1549d7aec9620db68aa7a5ea05aa08590d8f46598bb4b4e0e356753b44c694d4            0.0s 
+ => => extracting sha256:1f25242adbdb4bf04c16ac9fbe5385a46cf0f1fbee7d8e7945ef342b794d1bf1            0.0s 
+ => => extracting sha256:c32126d2b96c212b17a4fa8384c2aaf3e3418d4b2988c303df255de884a2a73a            0.0s 
+ => => extracting sha256:c24026275c332ec39b54c7094c7ce6d97b0dde17bb91e53b4b2d7dd88da7d8f0            0.3s 
+ => [2/2] RUN echo "Hello from Docker Lab" > /usr/share/nginx/html/index.html                        0.3s
+ => exporting to image                                                                               0.2s
+ => => exporting layers                                                                              0.1s 
+ => => exporting manifest sha256:ab9fce4e60b662b135dc5aacbfc3b2f6844192e6b1a00c043cdad8a933aa08b4    0.0s
+ => => exporting config sha256:8da53141a4a34494e4c320af7a470d8f20bd4a443897476b85eab7b34f105421      0.0s 
+ => => exporting attestation manifest sha256:72424be45a7fb7b42644774f9145dd06e189e48fbf0b42124e2266  0.0s 
+ => => exporting manifest list sha256:a1869199905818e9b881e6f6034142174e04c03684f803b6d634e0d29a40d  0.0s 
+ => => naming to docker.io/library/docker-lab-nginx:v1                                               0.0s 
+ => => unpacking to docker.io/library/docker-lab-nginx:v1                                            0.0s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xdztrcjc3tcsbjh80iiy35i4n
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-lab> docker images
+REPOSITORY                                 TAG         IMAGE ID       CREATED         SIZE
+docker-lab-nginx                           v1          a18691999058   2 seconds ago   92.6MB
+nginx                                      latest      bc45d248c4e1   36 hours ago    237MB
+ubuntu                                     22.04       3ba65aa20f86   4 weeks ago     117MB
+ubuntu                                     latest      d1e2e92c075e   4 weeks ago     117MB
+cryptoanalysis-web                         latest      cc7c95196b85   5 weeks ago     6.15GB
+4-web                                      latest      b7fc59a4eefb   2 months ago    3.57GB
+cryptoappreg231135.azurecr.io/crypto-web   latest      b8abf67c045e   2 months ago    3.57GB
+cryptoanalysis-ta-service                  latest      43789d17fbbd   2 months ago    415MB
+4-ta-service                               latest      45c362ab19f8   2 months ago    415MB
+cryptoappreg231135.azurecr.io/crypto-ta    latest      23d3f99f95f5   2 months ago    415MB
+cryptoappreg231135.azurecr.io/crypto-fa    latest      863f7bda0aa6   2 months ago    218MB
+4-fa-service                               latest      866e0e0c20ad   2 months ago    218MB
+cryptoanalysis-fa-service                  latest      0797ea0141a3   2 months ago    218MB
+3-web                                      latest      fecb833f90b7   2 months ago    867MB
+3-ta-service                               latest      d852b76d5042   2 months ago    415MB
+3-fa-service                               latest      bf2ad4ea3b5b   2 months ago    218MB
+postgres                                   15-alpine   aa7b1ef595e1   3 months ago    391MB
+products-viewer                            latest      e9b918b833f9   10 months ago   674MB
+nginx-product-host                         latest      2d53604e0c72   10 months ago   251MB
+nginx-product-host-i                       latest      942698f68f1d   10 months ago   251MB
+hello-world-java                           latest      c50d6af28196   10 months ago   674MB
+debian                                     11-slim     7aafeb23eaef   11 months ago   123MB
+docker/welcome-to-docker                   latest      eedaff45e3c7   2 years ago     29.5MB

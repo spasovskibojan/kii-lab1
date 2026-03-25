@@ -1,0 +1,48 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker pull nginx:latest
+latest: Pulling from library/nginx
+9eef040df109: Pull complete
+75a1d70aee50: Pull complete
+18a071c04bd1: Pull complete
+a9d395129dce: Pull complete
+df9da45c1db2: Pull complete
+206356c42440: Pull complete
+79697674b897: Pull complete
+Digest: sha256:bc45d248c4e1d1709321de61566eb2b64d4f0e32765239d66573666be7f13349
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker images
+REPOSITORY                                 TAG         IMAGE ID       CREATED         SIZE
+nginx                                      latest      bc45d248c4e1   36 hours ago    237MB
+ubuntu                                     22.04       3ba65aa20f86   4 weeks ago     117MB
+ubuntu                                     latest      d1e2e92c075e   4 weeks ago     117MB
+cryptoanalysis-web                         latest      cc7c95196b85   5 weeks ago     6.15GB
+4-web                                      latest      b7fc59a4eefb   2 months ago    3.57GB
+cryptoappreg231135.azurecr.io/crypto-web   latest      b8abf67c045e   2 months ago    3.57GB
+cryptoappreg231135.azurecr.io/crypto-ta    latest      23d3f99f95f5   2 months ago    415MB
+4-ta-service                               latest      45c362ab19f8   2 months ago    415MB
+cryptoanalysis-ta-service                  latest      43789d17fbbd   2 months ago    415MB
+4-fa-service                               latest      866e0e0c20ad   2 months ago    218MB
+cryptoanalysis-fa-service                  latest      0797ea0141a3   2 months ago    218MB
+cryptoappreg231135.azurecr.io/crypto-fa    latest      863f7bda0aa6   2 months ago    218MB
+3-web                                      latest      fecb833f90b7   2 months ago    867MB
+3-ta-service                               latest      d852b76d5042   2 months ago    415MB
+3-fa-service                               latest      bf2ad4ea3b5b   2 months ago    218MB
+postgres                                   15-alpine   aa7b1ef595e1   3 months ago    391MB
+products-viewer                            latest      e9b918b833f9   10 months ago   674MB
+nginx-product-host                         latest      2d53604e0c72   10 months ago   251MB
+nginx-product-host-i                       latest      942698f68f1d   10 months ago   251MB
+hello-world-java                           latest      c50d6af28196   10 months ago   674MB
+debian                                     11-slim     7aafeb23eaef   11 months ago   123MB
+docker/welcome-to-docker                   latest      eedaff45e3c7   2 years ago     29.5MB
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker run -d -p 8080:80 nginx:latest
+72bbde59e79c023ac2c3fffa089d0598c4f93416a9977e48bf4f5d5bc1cefeef
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS               
+   NAMES
+72bbde59e79c   nginx:latest   "/docker-entrypoint.…"   7 seconds ago   Up 6 seconds   0.0.0.0:8080->80/tcp   suspicious_yalow
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker stop suspicious_yalow
+suspicious_yalow
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker rm suspicious_yalow
+suspicious_yalow

@@ -1,0 +1,62 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker pull alpine
+Using default tag: latest
+latest: Pulling from library/alpine
+Digest: sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
+Status: Downloaded newer image for alpine:latest
+docker.io/library/alpine:latest
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker run alpine echo "HelloDocker"
+HelloDocker
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker ps -a
+CONTAINER ID   IMAGE                       COMMAND                  CREATED             STATUS                           PORTS                    NAMES
+368d909b9195   alpine                      "echo HelloDocker"       11 seconds ago      Exited (0) 9 seconds ago                                  sharp_chatterjee
+53bff4fdbcc1   docker-log-generator:v1     "/bin/sh -c 'sh -c '…"   9 minutes ago       Exited (137) 8 minutes ago                                stupefied_gauss
+71fd0a3cecea   ubuntu:22.04                "/bin/bash"              12 minutes ago      Exited (0) 12 minutes ago                                 busy_villani
+7082e5637ad6   ubuntu:22.04                "env"                    13 minutes ago      Exited (0) 12 minutes ago                                 blissful_goodall
+4ba6aedb62d7   nginx:alpine                "/docker-entrypoint.…"   16 minutes ago      Up 16 minutes                    0.0.0.0:8085->80/tcp     practical_darwin
+452ea58c4b7a   docker-python-app:v1        "python app.py"          21 minutes ago      Exited (0) 21 minutes ago                                 strange_lovelace
+aa8ae58238df   ubuntu:22.04                "/bin/bash"              46 minutes ago      Exited (127) 45 minutes ago                               myubuntu
+1ba7384f24ef   ubuntu:22.04                "/bin/bash"              49 minutes ago      Exited (0) 48 minutes ago                                 agitated_mclaren
+cf9d590c6490   ubuntu                      "/bin/bash"              About an hour ago   Exited (127) About an hour ago                            relaxed_booth
+dd0914ebce8b   ubuntu                      "/bin/bash"              About an hour ago   Exited (0) About an hour ago                              determined_black
+50656b767dd9   ubuntu                      "//bin/bash"             About an hour ago   Exited (0) About an hour ago                              eager_elgamal
+289fbfdb17a1   ubuntu                      "bash"                   About an hour ago   Exited (127) About an hour ago                            peaceful_panini
+6142c90070ed   ubuntu                      "C:/Program Files/Gi…"   About an hour ago   Created                                                   zealous_sammet
+7619baea5e78   cryptoanalysis-web          "sh -c 'python tech_…"   5 weeks ago         
+Exited (137) 5 weeks ago                                  cryptoanalysis-web-1
+c42e99f0ab10   cryptoanalysis-ta-service   "uvicorn main:app --…"   5 weeks ago         
+Exited (0) 5 weeks ago                                    cryptoanalysis-ta-service-1   
+7d351bb500ae   cryptoanalysis-fa-service   "uvicorn main:app --…"   5 weeks ago         
+Exited (0) 5 weeks ago                                    cryptoanalysis-fa-service-1   
+818f6c005c72   4-web                       "sh -c 'python tech_…"   2 months ago        Exited (137) 2 months ago                                 4-web-1
+a44a02122891   4-fa-service                "uvicorn main:app --…"   2 months ago        Exited (255) 5 weeks ago         0.0.0.0:8002->8002/tcp   4-fa-service-1
+dc5f86e2f656   4-ta-service                "uvicorn main:app --…"   2 months ago        Exited (255) 5 weeks ago         0.0.0.0:8001->8001/tcp   4-ta-service-1
+6a44fbbf9e34   postgres:15-alpine          "docker-entrypoint.s…"   3 months ago        Exited (0) 2 months ago                                   lab1wp_postgres
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker images
+REPOSITORY                                 TAG         IMAGE ID       CREATED          SIZE
+docker-python-app                          v1          20927340876e   22 minutes ago   83.7MB
+docker-lab-nginx                           v1          a18691999058   31 minutes ago   92.6MB
+nginx                                      alpine      f46cb72c7df0   37 hours ago     92.6MB
+nginx                                      latest      bc45d248c4e1   37 hours ago     237MB
+ubuntu                                     22.04       3ba65aa20f86   4 weeks ago      117MB
+ubuntu                                     latest      d1e2e92c075e   4 weeks ago      117MB
+cryptoanalysis-web                         latest      cc7c95196b85   5 weeks ago      6.15GB
+docker-log-generator                       v1          06448e510a15   6 weeks ago      13MB
+alpine                                     latest      25109184c71b   6 weeks ago      13MB
+4-web                                      latest      b7fc59a4eefb   2 months ago     3.57GB
+cryptoappreg231135.azurecr.io/crypto-web   latest      b8abf67c045e   2 months ago     3.57GB
+cryptoanalysis-ta-service                  latest      43789d17fbbd   2 months ago     415MB
+cryptoappreg231135.azurecr.io/crypto-ta    latest      23d3f99f95f5   2 months ago     415MB
+4-ta-service                               latest      45c362ab19f8   2 months ago     415MB
+cryptoanalysis-fa-service                  latest      0797ea0141a3   2 months ago     218MB
+cryptoappreg231135.azurecr.io/crypto-fa    latest      863f7bda0aa6   2 months ago     218MB
+4-fa-service                               latest      866e0e0c20ad   2 months ago     218MB
+3-web                                      latest      fecb833f90b7   2 months ago     867MB
+3-ta-service                               latest      d852b76d5042   2 months ago     415MB
+3-fa-service                               latest      bf2ad4ea3b5b   2 months ago     218MB
+postgres                                   15-alpine   aa7b1ef595e1   3 months ago     391MB
+products-viewer                            latest      e9b918b833f9   10 months ago    674MB
+nginx-product-host                         latest      2d53604e0c72   10 months ago    251MB
+nginx-product-host-i                       latest      942698f68f1d   10 months ago    251MB
+hello-world-java                           latest      c50d6af28196   10 months ago    674MB
+debian                                     11-slim     7aafeb23eaef   11 months ago    123MB
+docker/welcome-to-docker                   latest      eedaff45e3c7   2 years ago      29.5MB

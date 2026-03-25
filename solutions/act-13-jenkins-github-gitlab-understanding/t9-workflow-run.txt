@@ -1,0 +1,16 @@
+I created .github/workflows folder inside my root folder, then have created simple-ci.yml file inside with this content:
+name: Simple CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run a simple script
+        run: echo "Successfully triggered the pipeline!"

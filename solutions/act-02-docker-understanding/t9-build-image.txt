@@ -1,0 +1,49 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> echo "FROM ubuntu:latest" > Dockerfile
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker build -t myimage:v1 .
+[+] Building 1.5s (6/6) FINISHED                                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                  0.0s
+ => => transferring dockerfile: 60B                                                   0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                      0.1s
+ => [internal] load .dockerignore                                                     0.0s
+ => => transferring context: 2B                                                       0.0s
+ => [1/1] FROM docker.io/library/ubuntu:latest@sha256:d1e2e92c075e5ca139d51a140fff46  1.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:d1e2e92c075e5ca139d51a140fff46  1.1s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                         0.0s
+ => exporting to image                                                                0.1s
+ => => exporting layers                                                               0.0s
+ => => exporting manifest sha256:7247de7831b6a641c8065fbcae9e8d2d05992ba7608d206bef4  0.0s
+ => => exporting config sha256:cbb9408d87c33a4d903c5ec28f6dab287bc7a964ebcce72798951  0.0s
+ => => exporting attestation manifest sha256:9f4a0635e95628890a21509b00775c39dc94ea7  0.0s
+ => => exporting manifest list sha256:72fc6467a843fcd163b01fec4422b558ae12a85a4b413c  0.0s
+ => => naming to docker.io/library/myimage:v1                                         0.0s
+ => => unpacking to docker.io/library/myimage:v1                                      0.0s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/t6x6yi242jmt98rnvoo2z2hz9
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker images
+REPOSITORY                                 TAG         IMAGE ID       CREATED         SIZE
+myimage                                    v1          72fc6467a843   4 weeks ago     117MB
+ubuntu                                     latest      d1e2e92c075e   4 weeks ago     117MB
+cryptoanalysis-web                         latest      cc7c95196b85   5 weeks ago     6.15GB
+4-web                                      latest      b7fc59a4eefb   2 months ago    3.57GB
+cryptoappreg231135.azurecr.io/crypto-web   latest      b8abf67c045e   2 months ago    3.57GB
+4-ta-service                               latest      45c362ab19f8   2 months ago    415MB
+cryptoanalysis-ta-service                  latest      43789d17fbbd   2 months ago    415MB
+cryptoappreg231135.azurecr.io/crypto-ta    latest      23d3f99f95f5   2 months ago    415MB
+4-fa-service                               latest      866e0e0c20ad   2 months ago    218MB
+cryptoanalysis-fa-service                  latest      0797ea0141a3   2 months ago    218MB
+cryptoappreg231135.azurecr.io/crypto-fa    latest      863f7bda0aa6   2 months ago    218MB
+3-web                                      latest      fecb833f90b7   2 months ago    867MB
+3-ta-service                               latest      d852b76d5042   2 months ago    415MB
+3-fa-service                               latest      bf2ad4ea3b5b   2 months ago    218MB
+postgres                                   15-alpine   aa7b1ef595e1   3 months ago    391MB
+products-viewer                            latest      e9b918b833f9   10 months ago   674MB
+nginx-product-host                         latest      2d53604e0c72   10 months ago   251MB
+nginx-product-host-i                       latest      942698f68f1d   10 months ago   251MB
+hello-world-java                           latest      c50d6af28196   10 months ago   674MB
+debian                                     11-slim     7aafeb23eaef   11 months ago   123MB
+docker/welcome-to-docker                   latest      eedaff45e3c7   2 years ago     29.5MB
+
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2> docker rmi myimage:v1
+Untagged: myimage:v1
+Deleted: sha256:72fc6467a843fcd163b01fec4422b558ae12a85a4b413cf8f9c1b1980d4e123f

@@ -1,0 +1,42 @@
+Created the folder:
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3 (additional-branch)
+$ mkdir compose-homework-app
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3 (additional-branch)
+$ cd compose-homework-app/
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$ touch docker-compose.yml
+
+This is the content inside:
+services:
+  web:
+    image: jamtur01/composeapp
+    command: python app.py 
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/composeapp
+  redis:
+    image: redis
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app (additional-branch)
+$ docker compose version
+Docker Compose version v2.34.0-desktop.1
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app
+$ docker compose up -d
+[+] Running 3/3
+ ✔ Network compose-homework-app_default    Created
+ ✔ Container compose-homework-app-redis-1  Started
+ ✔ Container compose-homework-app-web-1    Started
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app
+$ docker compose ps
+NAME                           IMAGE                 COMMAND                  SERVICE   STATUS         PORTS
+compose-homework-app-redis-1   redis                 \"docker-entrypoint.s…\"   redis     Up 14 seconds  6379/tcp
+compose-homework-app-web-1     jamtur01/composeapp   \"python app.py\"          web       Up 13 seconds  0.0.0.0:5000->5000/tcp
+
+MSI@Bojan MINGW64 /d/Предмети/Semestar 6/КИИ/Homeworks/Lab3/compose-homework-app
+$ docker compose logs
+redis-1  | 1:M 17 Mar 2026 13:22:41.247 * Ready to accept connections tcp
+web-1    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)" > @solutions/act-11-docker-compose-homework/t1-compose-project-setup.txt

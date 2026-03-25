@@ -1,0 +1,11 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework> docker run -e USER_NAME=DockerStudent ubuntu:22.04 env
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=7082e5637ad6
+USER_NAME=DockerStudent
+HOME=/root
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab2\docker-python-homework> docker run -it -e COURSE=CI_CD ubuntu:22.04 /bin/bash
+
+root@71fd0a3cecea:/# env | grep COURSE
+COURSE=CI_CD
+root@71fd0a3cecea:/# exit
+exit

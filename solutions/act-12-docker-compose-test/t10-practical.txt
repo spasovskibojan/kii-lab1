@@ -1,0 +1,115 @@
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3> docker compose version
+Docker Compose version v2.34.0-desktop.1
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3> docker compose up -d
+time="2026-03-17T14:40:50+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab3\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 2/2
+ ✔ web Pulled                                                                                                                      2.2s 
+ ✔ redis Pulled                                                                                                                    2.2s 
+[+] Running 3/3
+ ✔ Network lab3_default    Created                                                                                                 0.0s 
+ ✔ Container lab3-web-1    Started                                                                                                 0.4s 
+ ✔ Container lab3-redis-1  Started                                                                                                 0.4s 
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3> docker compose ps
+time="2026-03-17T14:40:58+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab3\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME           IMAGE          COMMAND                  SERVICE   CREATED         STATUS         PORTS
+lab3-redis-1   redis:alpine   "docker-entrypoint.s…"   redis     6 seconds ago   Up 6 seconds   6379/tcp
+lab3-web-1     nginx:alpine   "/docker-entrypoint.…"   web       6 seconds ago   Up 6 seconds   0.0.0.0:5000->80/tcp
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3> docker compose logs
+time="2026-03-17T14:41:03+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab3\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+redis-1  | Starting Redis Server
+web-1    | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+web-1    | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+redis-1  | 1:C 17 Mar 2026 13:40:52.929 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+web-1    | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+web-1    | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+web-1    | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+web-1    | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+web-1    | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+web-1    | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+web-1    | /docker-entrypoint.sh: Configuration complete; ready for start up
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: using the "epoll" event method
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: nginx/1.29.6
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0)
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker processes
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 30
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 31
+redis-1  | 1:C 17 Mar 2026 13:40:52.929 * Redis version=8.6.1, bits=64, commit=00000000, modified=1, pid=1, just started
+redis-1  | 1:C 17 Mar 2026 13:40:52.929 * Configuration loaded
+redis-1  | 1:M 17 Mar 2026 13:40:52.930 * monotonic clock: POSIX clock_gettime
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 32
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 33
+redis-1  | 1:M 17 Mar 2026 13:40:52.933 * Running mode=standalone, port=6379.
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf> RedisBloom version 8.6.0 (Git=unknown)
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf> Registering configuration options: [
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 34
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 35
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { bf-error-rate       :      0.01 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { bf-initial-size     :       100 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { bf-expansion-factor :         2 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { cf-bucket-size      :         2 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { cf-initial-size     :      1024 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { cf-max-iterations   :        20 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { cf-expansion-factor :         1 }
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 36
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 37
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 38
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 39
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf>  { cf-max-expansions   :        32 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.935 * <bf> ]
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 40
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 41
+redis-1  | 1:M 17 Mar 2026 13:40:52.936 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis-1  | 1:M 17 Mar 2026 13:40:52.969 * <search> Redis version found by RedisSearch : 8.6.1 - oss
+redis-1  | 1:M 17 Mar 2026 13:40:52.969 * <search> RediSearch version 8.6.0 (Git=7782b97)
+redis-1  | 1:M 17 Mar 2026 13:40:52.969 * <search> Low level api version 1 initialized successfully
+redis-1  | 1:M 17 Mar 2026 13:40:52.970 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD,
+redis-1  | 1:M 17 Mar 2026 13:40:52.971 * <search> Initialized thread pools!
+redis-1  | 1:M 17 Mar 2026 13:40:52.971 * <search> Disabled workers threadpool of size 0
+redis-1  | 1:M 17 Mar 2026 13:40:52.971 * <search> Subscribe to config changes
+redis-1  | 1:M 17 Mar 2026 13:40:52.971 * <search> Subscribe to cluster slot migration events
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 42
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 43
+redis-1  | 1:M 17 Mar 2026 13:40:52.971 * <search> Enabled role change notification
+redis-1  | 1:M 17 Mar 2026 13:40:52.972 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+redis-1  | 1:M 17 Mar 2026 13:40:52.972 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries> RedisTimeSeries version 80600, git_sha=05fd355db748676861dc4c17d19c8c1ca74c0154  
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries> Redis version found by RedisTimeSeries : 8.6.1 - oss
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries> Registering configuration options: [
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-compaction-policy   :              }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-num-threads         :            3 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-retention-policy    :            0 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-duplicate-policy    :        block }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-chunk-size-bytes    :         4096 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-encoding            :   compressed }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-ignore-max-time-diff:            0 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries>  { ts-ignore-max-val-diff :     0.000000 }
+redis-1  | 1:M 17 Mar 2026 13:40:52.974 * <timeseries> ]
+redis-1  | 1:M 17 Mar 2026 13:40:52.975 * <timeseries> Detected redis oss
+redis-1  | 1:M 17 Mar 2026 13:40:52.975 * <timeseries> Subscribe to ASM events
+redis-1  | 1:M 17 Mar 2026 13:40:52.975 * <timeseries> Enabled diskless replication
+redis-1  | 1:M 17 Mar 2026 13:40:52.975 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis-1  | 1:M 17 Mar 2026 13:40:52.981 * <ReJSON> Created new data type 'ReJSON-RL'
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 44
+web-1    | 2026/03/17 13:40:52 [notice] 1#1: start worker process 45
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Exported RedisJSON_V1 API
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Exported RedisJSON_V2 API
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Exported RedisJSON_V3 API
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Exported RedisJSON_V4 API
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Exported RedisJSON_V5 API
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Exported RedisJSON_V6 API
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Enabled diskless replication
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <ReJSON> Initialized shared string cache, thread safe: true.
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis-1  | 1:M 17 Mar 2026 13:40:52.983 * <search> Acquired RedisJSON_V6 API
+redis-1  | 1:M 17 Mar 2026 13:40:53.056 * Server initialized
+redis-1  | 1:M 17 Mar 2026 13:40:53.057 * Ready to accept connections tcp
+redis-1  | 1:M 17 Mar 2026 13:40:53.057 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+PS D:\Предмети\Semestar 6\КИИ\Homeworks\Lab3> docker compose down
+time="2026-03-17T14:41:09+01:00" level=warning msg="D:\\Предмети\\Semestar 6\\КИИ\\Homeworks\\Lab3\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 3/3
+ ✔ Container lab3-web-1    Removed                                                                                                 0.7s 
+ ✔ Container lab3-redis-1  Removed                                                                                                 0.4s 
+ ✔ Network lab3_default    Removed   
