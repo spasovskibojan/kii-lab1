@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_CREDS = 'docker-hub-credentials'
+        IMAGE_NAME = 'spasovskibojan/hw15-nginx'
+    }
+    stages {
+        stage('Clone repository') {
+            steps {
+                checkout scm
+                echo 'Repository cloned.'
+            }
+        }
+        stage('Build image') {
+            steps {
+                // We point to the specific folder so it finds the right Dockerfile
+                dir('hw15-jenkins') {
+                    script {
+                        dockerApp = docker.build("${IMAGE_NAME}:${env.BUILD_ID}")
+                    }
+                }
+            }
+        }
+        stage('Push image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDS}") {
+                        dockerApp.push()
+                        dockerApp.push('latest')
+                    }
+                }
+            }
+        }
+    }
+}
