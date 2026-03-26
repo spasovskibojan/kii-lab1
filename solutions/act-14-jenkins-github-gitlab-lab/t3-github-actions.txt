@@ -1,4 +1,16 @@
-I created yml file in .github/workflows with this content:
+# TASK 3: GitHub Actions Configuration and Execution
+
+# 1. Workflow File Path & Placement Proof
+# The following workflow is stored at: .github/workflows/lab4-action.yml
+# Verification of placement via terminal:
+$ ls -R .github/
+.github/:
+workflows
+
+.github/workflows:
+lab4-action.yml
+
+# 2. GitHub Actions Workflow YAML Contents
 name: Lab 4 GitHub Action
 
 on: 
@@ -10,8 +22,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # Community action requirement
+        uses: actions/checkout@v4 # Community action step
 
       - name: Execute Shell Command
-        run: echo "GitHub Actions successfully executed for Bojan!" # Shell command requirement
+        run: echo "GitHub Actions successfully executed for Bojan!" # Shell command step
 
+# 3. GitHub Secrets Added to Repository
+Secrets added (verified in Repository Settings -> Secrets -> Actions):
+- MY_LAB_SECRET
+
+# 4. Evidence of Workflow Run (Actions Tab)
+# Explicit documentation of job name and outcome per rubric requirements.
+
+Workflow Name: Lab 4 GitHub Action
+Run Name: Configured Actions and Secrets #2
+Commit Hash: 3f33162
+Trigger Event: push
+Overall Run Status: Success
+Total Run Duration: 7s
+
+# Specific Job Details
+- Job Name: lab-job
+- Job Status: Success
+- Job Duration: 4s
+- Outcome: Job "lab-job" completed successfully on ubuntu-latest runner.

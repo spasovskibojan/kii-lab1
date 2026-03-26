@@ -1,0 +1,17 @@
+name: T5 GitHub Actions Pipeline
+
+on: 
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  validate-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Run Validation
+        run: echo "GitHub Actions workflow executed successfully!"

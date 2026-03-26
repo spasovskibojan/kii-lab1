@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build-docker-image:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  script:
+    - echo "Starting Docker build process for T5..."
+    - docker build -t t5-final-image:latest .

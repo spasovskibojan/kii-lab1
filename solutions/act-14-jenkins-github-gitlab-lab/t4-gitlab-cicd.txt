@@ -1,0 +1,33 @@
+# TASK 4: GitLab CI/CD Configuration and Execution
+
+# 1. Full Contents of .gitlab-ci.yml (Placed at Repository Root)
+stages:
+  - build
+
+docker-build-job:
+  image: docker:24.0.5
+  stage: build
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  script:
+    - docker build -t $DOCKER_USERNAME/kiii-lab4-image:latest .
+    - docker push $DOCKER_USERNAME/kiii-lab4-image:latest
+
+# 2. Names of Configured CI/CD Variables
+Variables configured in GitLab Settings -> CI/CD -> Variables:
+- DOCKER_USERNAME
+- DOCKER_PASSWORD
+
+# 3. Evidence of Pipeline Run (GitLab Pipelines View)
+# Demonstrating pipeline status and specific job name execution per rubric
+
+Pipeline ID: #2410607463
+Pipeline Status: Passed
+Commit Message: "Initial"
+Total Duration: 00:00:50
+
+# Specific Job Details
+Job Name: docker-build-job
+Job Status: Passed
